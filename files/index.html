@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name | 3DCG Artist</title>
+  <meta name="description" content="3DCGアーティスト Your Name のポートフォリオ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;800&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 背景：メッシュ風パーティクル（script.jsが描画） -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="logo">Your Name</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#works">Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero__inner">
+        <p class="hero__role">3DCG Artist / Blender・Unity</p>
+        <!-- ▼キャッチコピーはここを書き換え -->
+        <h1><span>頂点ひとつから、</span><span>世界をつくる。</span></h1>
+        <a href="#works" class="btn">作品を見る</a>
+      </div>
+      <a href="#about" class="scroll" aria-label="Scroll down"><span>Scroll down</span><i></i></a>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <h2 class="reveal">About</h2>
+      <div class="about">
+        <!-- ▼プロフィール画像（差し替え：images/profile.jpg など） -->
+        <img class="about__img reveal" src="https://picsum.photos/seed/profile/600/700" alt="プロフィール写真" loading="lazy">
+        <div class="reveal">
+          <h3>Your Name</h3>
+          <!-- ▼自己紹介文を書き換え -->
+          <p>3DCGを軸に、モデリング・テクスチャ・ライティング・映像制作まで一貫して手がけています。キャラクターから背景、プロダクトビジュアルまで、「見た人の記憶に残る一枚」を目指して制作しています。</p>
+          <p>お仕事のご相談・コラボレーションはお気軽にご連絡ください。</p>
+          <!-- ▼使用ツール（タグを増減OK） -->
+          <ul class="tags">
+            <li>Blender</li><li>Unity</li><li>Substance Painter</li>
+            <li>ZBrush</li><li>After Effects</li><li>Photoshop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works -->
+    <section class="section" id="works">
+      <h2 class="reveal">Works</h2>
+      <div class="filters reveal" role="tablist">
+        <button class="is-active" data-filter="all">ALL</button>
+        <button data-filter="3dcg">3DCG</button>
+        <button data-filter="movie">Movie</button>
+        <button data-filter="image">Image</button>
+      </div>
+      <!-- カードはscript.jsのWORKS配列から自動生成されます -->
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2 class="reveal">Contact</h2>
+      <div class="contact reveal">
+        <p>制作のご依頼・ご相談はこちらから。</p>
+        <form id="form">
+          <input name="name" placeholder="お名前" required>
+          <input name="email" type="email" placeholder="メールアドレス" required>
+          <textarea name="msg" rows="5" placeholder="ご用件" required></textarea>
+          <button class="btn" type="submit">メールアプリで送る</button>
+        </form>
+        <!-- ▼SNSリンク（URLを差し替え） -->
+        <div class="sns">
+          <a href="https://x.com/" target="_blank" rel="noopener">X</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.artstation.com/" target="_blank" rel="noopener">ArtStation</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Your Name All Rights Reserved.</footer>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__box">
+      <button class="modal__close" id="close" aria-label="閉じる">×</button>
+      <div class="modal__media" id="mMedia"></div>
+      <div class="modal__text"><h3 id="mTitle"></h3><p id="mDesc"></p></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
